@@ -66,7 +66,7 @@ def search():
 root = Tk(className="Weather App")
 root.config(background='#fff')
 # root.minsize(270, 250)
-# root.maxsize()
+root.maxsize(565, 565) # (width, height)
 frame = Frame(root)
 frame.config(background='#fff')
 frame.grid(row=0)
