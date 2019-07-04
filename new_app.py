@@ -65,11 +65,11 @@ def search():
 
 root = Tk(className="Weather App")
 root.config(background='#fff')
-# root.minsize(270, 250)
+root.minsize(565, 250)
 root.maxsize(565, 565) # (width, height)
 frame = Frame(root)
 frame.config(background='#fff')
-frame.grid(row=0)
+frame.pack()
 label_1 = Label(frame, text="Weather App", fg="#2e2e2e", bg='#fff',
                 font='Roboto 17 bold').grid(row=0,columnspan=2)
 label_2 = Label(frame, text="Get weather data by city names", fg="#2e2e2e", bg='#fff',
