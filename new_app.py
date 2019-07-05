@@ -17,7 +17,7 @@ def search():
             # print(data.url)
             data = data.json()
 
-            Label(frame, text="                Weather in " + data['name']+', ' + data['sys']['country']+'                 ',
+            Label(frame, text="                Weather in " + data['name']+', ' + data['sys']['country'] + '                 ',
                   font='Roboto 20 bold', bg='#fff').grid(row=6, pady=5, columnspan=2)
 
             temp = data['main']['temp'] - 273.15
@@ -60,8 +60,8 @@ def search():
                   font='Roboto 13 normal').grid(row=12, column=1, ipady=5, ipadx=5)
             root.mainloop()
     except KeyError:
-        Label(frame, text="Please enter correct data",
-              font='Roboto 13 bold', bg='#fff').grid(row=6, columnspan=2)
+        Label(frame, text="            Please enter correct data            ",
+              font='Roboto 20 bold', bg='#fff').grid(row=6, columnspan=2)
 
 
 root = Tk(className="Weather App")
