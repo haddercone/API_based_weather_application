@@ -1,1 +1,1 @@
-api_key = 'b30c7584443a13c392926ffcc3d7735c'
+api_key = 'your API key goes here'

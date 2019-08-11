@@ -17,7 +17,8 @@ def search():
             # print(data.url)
             data = data.json()
 
-            Label(frame, text="Weather in " + data['name'], font='Roboto 20 bold', bg='#fff').grid(row=6, pady=5, columnspan=2)
+            Label(frame, text="                Weather in " + data['name']+', ' + data['sys']['country'] + '                 ',
+                  font='Roboto 20 bold', bg='#fff').grid(row=6, pady=5, columnspan=2)
 
             temp = data['main']['temp'] - 273.15
             icon = data['weather'][0]['icon']
@@ -34,7 +35,7 @@ def search():
             cv.create_image(1, 1, image=photo, anchor='nw')
             cv.grid(row=7,column=0, columnspan=2)
 
-            Label(frame, text=data['weather'][0]['description'].capitalize(), bg="#fff",
+            Label(frame, text="                  " + data['weather'][0]['description'] + "                  ".capitalize(), bg="#fff",
                   font='Roboto 13 normal').grid(row=8, pady=5, columnspan=2)
 
             Label(frame, text="%.2f°C " % temp, bg="#fff",
@@ -49,7 +50,7 @@ def search():
                   font='Roboto 13 normal').grid(row=11, column=0, ipady=5, ipadx=5)
 
             pressure = data['main']['pressure']*100
-            Label(frame, text="Atmospheric pressure:"+str(pressure)+" Pa", bg="#fff",
+            Label(frame, text="   Atmospheric pressure:"+str(pressure)+" Pa   ", bg="#fff",
                   font='Roboto 13 normal').grid(row=10, column=1, ipady=5, ipadx=5)
             Label(frame, text="Humidity: "+str(data['main']['humidity'])+" %", bg="#fff",
                   font='Roboto 13 normal').grid(row=11, column=1, ipady=5, ipadx=5)
@@ -59,17 +60,17 @@ def search():
                   font='Roboto 13 normal').grid(row=12, column=1, ipady=5, ipadx=5)
             root.mainloop()
     except KeyError:
-        Label(frame, text="Please enter correct data",
-              font='Roboto 13 bold', bg='#fff').grid(row=6, columnspan=2)
+        Label(frame, text="            Please enter correct data            ",
+              font='Roboto 20 bold', bg='#fff').grid(row=6, columnspan=2)
 
 
 root = Tk(className="Weather App")
 root.config(background='#fff')
-# root.minsize(270, 250)
-# root.maxsize()
+root.minsize(565, 210)
+
 frame = Frame(root)
 frame.config(background='#fff')
-frame.grid(row=0)
+frame.pack()
 label_1 = Label(frame, text="Weather App", fg="#2e2e2e", bg='#fff',
                 font='Roboto 17 bold').grid(row=0,columnspan=2)
 label_2 = Label(frame, text="Get weather data by city names", fg="#2e2e2e", bg='#fff',
